@@ -5105,7 +5105,7 @@ void RasterizerSceneGLES3::initialize() {
 
 	shadow_atlas_realloc_tolerance_msec = 500;
 
-	int max_shadow_cubemap_sampler_size = 512;
+	int max_shadow_cubemap_sampler_size = CLAMP(int(next_power_of_2(GLOBAL_GET("rendering/quality/shadow_atlas/size")) >> 3), 256, storage->config.max_cubemap_texture_size);
 
 	int cube_size = max_shadow_cubemap_sampler_size;
 
